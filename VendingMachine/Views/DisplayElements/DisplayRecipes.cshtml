@@ -1,0 +1,26 @@
+﻿@{
+    ViewData["Title"] = "Recipes";
+}
+
+@model VendingMachine.ViewComponents.Renderer.RecipesRenderer
+
+<div class="text-center">
+    <h1 class="display-4">Ingredients</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <td scope="col">Name</td>
+                <td scope="col">Ingredients</td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var r in @Model.DrinkRecipesList)
+            {
+                <tr>
+                    <td scope="col">@r.Key</td>
+                    <td scope="col">@r.Value</td>
+                </tr>
+            }
+        </tbody>
+    </table>

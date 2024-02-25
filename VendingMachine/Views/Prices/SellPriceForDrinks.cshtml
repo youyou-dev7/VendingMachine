@@ -1,0 +1,17 @@
+﻿@{
+    ViewData["Title"] = "Prix de vente";
+}
+@model VendingMachine.ViewComponents.Prices.DrinkPriceCalculator
+
+<h1>@ViewData["Title"]</h1>
+<form asp-controller="Prices" asp-action="SellPriceForDrinks" method="post">
+
+
+    <div><select class="form-select" asp-items="Model.RecipesList" asp-for="SelectedRecipe"></select></div>
+
+    <button type="submit" value="Calculate Price" class="btn btn-primary">Valider</button>
+</form>
+@if(!string.IsNullOrEmpty(Model.SelectedRecipe) && Model.SelectedRecipePrice != null){
+<p>Prix de @Model.SelectedRecipe : @Model.SelectedRecipePrice €</p>
+}
+
